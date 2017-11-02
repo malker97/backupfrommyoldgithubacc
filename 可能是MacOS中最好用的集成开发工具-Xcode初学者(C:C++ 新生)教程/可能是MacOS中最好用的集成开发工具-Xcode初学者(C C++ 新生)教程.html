@@ -1,0 +1,87 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>可能是MacOS中最好用的集成开发工具-Xcode初学者(C/C++ 新生)教程</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><blockquote>
+<p>MaLker（beizhen_120@126.com）<br>
+建议人群: 大学（或同等水平）计算机专业新生,曾使用过部分古典Windows平台的开发工具（VC6.0）</p>
+</blockquote>
+<h1>一.提前准备(已经安装好的请跳过本部分)</h1>
+<h2>下载与安装：</h2>
+<h3>常见的下载方式:</h3>
+<p>安装过程中需要多次输入管理员密码：如果你开机时只能选择一个用户，那么这个用户的开机密码为管理员密码，如果有多个，那么根据安装界面提醒的用户名输入相应用户的开机密码即可。</p>
+<h4>方法一(墙裂建议):</h4>
+<blockquote>
+<p>作为一名拥有Mac（或者黑苹果）的你，你可能已经深受IOS的毒害许久，你或许已经拥有一部或者多不运行IOS的设备。</p>
+</blockquote>
+<p>所以，你可以直接从App Store中直接下载。<br>
+在App Store中搜索Xcode，点击下载，然后点击安装，然后你就可以等待你的Xcode安装在你的电脑上了。(每次安装后均需要输入自己电脑的管理员账号，一般情况下为开机密码)</p>
+<h4>方法二:互联网下载</h4>
+<blockquote>
+<p>可能你或者你的朋友都一起买了Mac，或者你壕无人性的购买了苹果大礼包全家桶，你或许需要一个安装包来拯救你的带宽，这时候各大社区（某景论坛，某锋网等）都可以找到别人分享的安装包，一次下载之后就可以拷贝后在多个电脑上安装。</p>
+</blockquote>
+<p>1.首先，你需要安装包.<br>
+2.双击安装包后多次输入管理员密码，就可以完成安装了。</p>
+<h4>方法三:Airdrop分享</h4>
+<blockquote>
+<p>这个的前提是你的另一台或者别人的Mac中已经有Xcode了，并且距离很近（Face2Face泥懂么）</p>
+</blockquote>
+<p>1.首先需要在Finder中左侧辅助栏中打开Airdrop选项。<br>
+2.然后，在已经有Xcode的电脑中在Finder的侧栏中个人收藏-&gt;应用程序-&gt;Xcode右键选择通过Airdrop分享即可.</p>
+<h3>安装完成之后第一次打开Xcode会提醒输入管理员密码。</h3>
+<h1>怎样用Xcode写一个helloWorld.cpp？</h1>
+<p>这个问题问的好</p>
+<h2>1.打开Xcode之后你会看到这个界面:</h2>
+<p><img src="resources/4FF300C014EE1C7C8FD5FEEECC52A1D5.jpg" alt="IMAGE" width="802" height="470"></p>
+<blockquote>
+<p>第一次打开时，右侧为空，右侧为你近期打开的工程(Project)</p>
+</blockquote>
+<h2>2.点击选择黑框所标出的选项后，你会进入以下界面</h2>
+<p><img src="resources/B0B2C1AE572500F0EF40E8C307235C0F.jpg" alt="IMAGE" width="1122" height="633"><br>
+依次选择:MacOS-&gt;Comand Line Tool</p>
+<h2>3.然后你就进入了下图的界面</h2>
+<p><img src="resources/063BF01675D4DC86424D104835E8845E.jpg" alt="IMAGE" width="1279" height="719"></p>
+<blockquote>
+<p>Product Name 为项目名为必填项其他为选填项<br>
+Language为编程语言，不用天真的去找简体中文了</p>
+</blockquote>
+<h2>4.填写完后点击Finish，然后选择文件存储路径，怎么存，我只能说看你自己了</h2>
+<p><img src="resources/69C21C60AE547781D99507D691855D55.jpg" alt="IMAGE" width="712" height="458"></p>
+<h2>5.进行完以上的操作以后相信你马上已经要懵逼了，你将会看到以下的界面</h2>
+<p><img src="resources/0637500F9744B5C8794212183F2B9865.jpg" alt="IMAGE" width="1118" height="628"></p>
+<blockquote>
+<p>嗯，我相信，高中英语摸鱼的你已经方了，这是蛤，这玩意怎么那么高级，我该在哪写，桌子要是掀翻了，我的Mac会在多久后与地面发生亲密接触？</p>
+</blockquote>
+<p>然鹅，对于初学者的你，只需要点击左侧标出的main.cpp,然后你就可以开始写代码了.</p>
+<h2>6.在你写完打码后点击左上角的开始号，右下角的Shell里就会出现你的运行结果了</h2>
+<p><img src="resources/AAD033AD0423D0DDEB863FCBE79D188A.jpg" alt="IMAGE" width="1119" height="633"></p>
+</div></div>
+      <script></script>
+    </body>
+    </html>
+  
