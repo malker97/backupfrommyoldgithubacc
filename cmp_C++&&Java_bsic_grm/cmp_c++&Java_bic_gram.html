@@ -1,0 +1,232 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>C++与Java基本语法的对比</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><h3>首先感谢您的赏光，如果发现什么问题请与我联系，方便我即使做出改正。MaLker（beizhen_120@126.com）</h3>
+<h1>1.关于注释(相同)</h1>
+<blockquote>
+<p>Java&amp;&amp;C/C++</p>
+</blockquote>
+<p><code>//这是单行注释 与 /*这是多行注释 */</code></p>
+<blockquote>
+<p>在IDE情况下使用注释的时候，一般会有注释的快捷键<br>
+例如在OS X的环境下，Clion和IDEA的情况下，注释的快捷键为<br>
+<code>Command+‘/’(键)</code></p>
+</blockquote>
+<h1>2.基本数据类型</h1>
+<p>编译环境为64位</p>
+<blockquote>
+<p>如果相应的数据类型存在，相应的框中会有字节数，如果不存在，则为0</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>C++</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>bool(C++)/Boolen(Java)</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>小结:从中可以看出，C++&amp;&amp;Java中，除byte类型Java独有，布尔类型名称不同，其他基本相同。</p>
+</blockquote>
+<h1>3.循环语句</h1>
+<blockquote>
+<p>首先说明C++的循环语句，Java中完全兼容</p>
+<ul>
+<li>讲解顺序为for-&gt;while-&gt;do while</li>
+</ul>
+</blockquote>
+<h2>3.1 for语句</h2>
+<p><code>for(;;)</code></p>
+<blockquote>
+<p>除了C++中for(int i = 0;i&lt;n;i++)外，因为Java中对数组有着特殊的操作，所以Java的循环中有其他的一类模板操作。</p>
+</blockquote>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int[] arrs = {1,2,3,4};
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>for(int i = 0;i&lt;arrs.length;i++)
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  System.out.println(arrs[i]);
+</div></div></div></pre>
+<blockquote>
+<p>Java中也有着类似Python/Swift的for循环遍历方法</p>
+</blockquote>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int[] arrs = {1,2,3,5};
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    for (int i : arrs) 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>  System.out.println(i);
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>  //<span class="ace_cjk" style="width:NaNpx">注</span><span class="ace_cjk" style="width:NaNpx">意</span><span class="ace_cjk" style="width:NaNpx">此</span><span class="ace_cjk" style="width:NaNpx">处</span><span class="ace_cjk" style="width:NaNpx">为</span><span class="ace_cjk" style="width:NaNpx">输</span><span class="ace_cjk" style="width:NaNpx">出</span>i<span class="ace_cjk" style="width:NaNpx">而</span><span class="ace_cjk" style="width:NaNpx">非</span>arrs[i]
+</div></div></div></pre>
+<p>输出的结果为:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>1
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>2
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>3
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>5
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div></div></div></pre>
+<p>Java的for循环还有对collection的遍历方法。不多做总结，如有需求可以查看别人的代码。</p>
+<blockquote>
+<p>小结:首先要说明的是，Java的for循环的使用方法比C++的方法多，但是完全兼容C++的For循环方法，因为这篇博客是针对使用C++的同学复习使用的，所以更多方法在本篇博客中不做赘述。</p>
+</blockquote>
+<h2>3.2 while&amp;&amp;do while</h2>
+<p>这里的使用方法与C++完全相同。</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>while(/*<span class="ace_cjk" style="width:NaNpx">判</span><span class="ace_cjk" style="width:NaNpx">断</span>*/){
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>//<span class="ace_cjk" style="width:NaNpx">循</span><span class="ace_cjk" style="width:NaNpx">环</span><span class="ace_cjk" style="width:NaNpx">体</span><span class="ace_cjk" style="width:NaNpx">内</span><span class="ace_cjk" style="width:NaNpx">容</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>}
+</div></div></div></pre>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>do{
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>}while();//&lt;-<span class="ace_cjk" style="width:NaNpx">我</span><span class="ace_cjk" style="width:NaNpx">跟</span><span class="ace_cjk" style="width:NaNpx">你</span><span class="ace_cjk" style="width:NaNpx">说</span><span class="ace_cjk" style="width:NaNpx">，</span><span class="ace_cjk" style="width:NaNpx">这</span><span class="ace_cjk" style="width:NaNpx">个</span><span class="ace_cjk" style="width:NaNpx">分</span><span class="ace_cjk" style="width:NaNpx">号</span><span class="ace_cjk" style="width:NaNpx">可</span><span class="ace_cjk" style="width:NaNpx">以</span><span class="ace_cjk" style="width:NaNpx">说</span><span class="ace_cjk" style="width:NaNpx">是</span><span class="ace_cjk" style="width:NaNpx">循</span><span class="ace_cjk" style="width:NaNpx">环</span><span class="ace_cjk" style="width:NaNpx">体</span><span class="ace_cjk" style="width:NaNpx">里</span><span class="ace_cjk" style="width:NaNpx">最</span><span class="ace_cjk" style="width:NaNpx">大</span><span class="ace_cjk" style="width:NaNpx">的</span><span class="ace_cjk" style="width:NaNpx">坑</span>
+</div></div></div></pre>
+<h1>4. 数组</h1>
+<p>Java的数组与C++中的数组有明显的区别</p>
+<h2>4.1声明一个数组</h2>
+<p>C:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int a[5];
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int b[n];//n<span class="ace_cjk" style="width:NaNpx">已</span><span class="ace_cjk" style="width:NaNpx">知</span><span class="ace_cjk" style="width:NaNpx">的</span><span class="ace_cjk" style="width:NaNpx">情</span><span class="ace_cjk" style="width:NaNpx">况</span><span class="ace_cjk" style="width:NaNpx">下</span><span class="ace_cjk" style="width:NaNpx">，</span><span class="ace_cjk" style="width:NaNpx">某</span><span class="ace_cjk" style="width:NaNpx">些</span><span class="ace_cjk" style="width:NaNpx">编</span><span class="ace_cjk" style="width:NaNpx">译</span><span class="ace_cjk" style="width:NaNpx">器</span><span class="ace_cjk" style="width:NaNpx">也</span><span class="ace_cjk" style="width:NaNpx">可</span><span class="ace_cjk" style="width:NaNpx">编</span><span class="ace_cjk" style="width:NaNpx">译</span><span class="ace_cjk" style="width:NaNpx">输</span><span class="ace_cjk" style="width:NaNpx">入</span>n<span class="ace_cjk" style="width:NaNpx">的</span><span class="ace_cjk" style="width:NaNpx">情</span><span class="ace_cjk" style="width:NaNpx">况</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int a[]={1,2,3,45};
+</div></div></div></pre>
+<p>C++:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>#include &lt;array&gt;
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>array&lt;int,5&gt; myarray={1,2,3,4,5};  
+</div></div></div></pre>
+<p>Java:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int[] arrs1 = new int[5];
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int[] arrs2 = {1,2,3,4,5};
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int[] arrs3 = new int[]{1,2,3,4,5};
+</div></div></div></pre>
+<blockquote>
+<p>声明二/多维数组时候，除C++的模板外，都在[]再加[]就可以</p>
+</blockquote>
+<p>特殊的<br>
+C++:<br>
+<code>array&lt;array&lt;int,2&gt;,3 &gt; myarray2D={1,2,3,4,5,6};</code><br>
+Java:<br>
+<code>int[][] arrs={{1.111D,2.222D,3.333D},{4.444D,5.555D,6.666D}};</code></p>
+<h1>5.字符(Char)和字符串(String)</h1>
+<h2>5.1 字符(char)</h2>
+<p>C++和Java中都存在char<br>
+两者都可完成以下赋值</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>char a = 'A';
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>int b = 96;
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>a = (char)b;
+</div></div></div></pre>
+<h2>5.2字符串(String)</h2>
+<p>首先要说明的是在C++中字符串为string(注意此处的s为小写)，而在Java中为String<br>
+Java:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>String a = "abc";
+</div></div></div></pre>
+<p>C++:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>string a = "abc";
+</div></div></div></pre>
+<h2>5.3 C++中char与String之间的转换及体会</h2>
+<p>首先说明的是String与char是完全不同的类型，sizeof(string)时，恒为24，而char时为1<br>
+但是，可以通过强行数据转换的方法实现char对String的查看。</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>string a="123asdasdasd"/*+'\0'*/;
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    char *c =(char*)&amp;a;
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    while (c++&amp;&amp;*c) {
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    cout&lt;&lt;*c;
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    }
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    cout&lt;&lt;endl;
+</div></div></div></pre>
+<p>输出结果为:</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>123asdasdasd
+</div></div></div></pre>
+<blockquote>
+<p>由此可见String的存储类型是类似于char[]类型的，他的结尾也为‘\0’。</p>
+</blockquote>
+<h2>5.4 String的基本操作</h2>
+<h3>5.4.1 首先是字符串拼接</h3>
+<p>String a = "hahhaha";<br>
+a+="1231231";<br>
+这一方法在更改了S的大小写后，C++和Java都可以通用<br>
+但是Java中还有concat方法<br>
+<code>a = a.concat("1231231");</code></p>
+<h3>5.4.2 字符串比较</h3>
+<p>C++:<br>
+在C++中可以用‘==’的方法进行比较</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  string a = "123";
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  string b = "234";
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  if(a=!=b){
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  cout&lt;&lt;"hr"&lt;&lt;endl;}
+</div></div></div></pre>
+<p>Java:<br>
+在Java中，字符串有着equals方法</p>
+<pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>String a = "hahhaha";
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    String b = "123";
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    if(a.equals(b)){
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    System.out.println("Equal!!");
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    }
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    else{
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    System.out.println("Is not equal!!");
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    }
+</div></div></div></pre>
+</div><div class="cell text-cell"><br></div></div>
+      <script></script>
+    </body>
+    </html>
+  
